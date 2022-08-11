@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Sql;
+using System.Data.SqlClient;
 
 namespace PEmp.banco
 {
@@ -54,6 +56,55 @@ namespace PEmp.banco
                 return "";
             }
             }
+
+        public static void connOpen()
+        {
+           
+                string connetionString = arquString.procurararquivo();
+                SqlConnection conn = new SqlConnection(connetionString);
+                try
+                {
+                    conn.Open();
+
+                }
+                catch
+                {
+                    MessageBox.Show("Conexão Falhou");
+
+                }
+                finally
+                {
+                    conn.Close();
+                }
+
+            
         }
+        public static void connClose()
+        {
+
+            string connetionString = arquString.procurararquivo();
+            SqlConnection conn = new SqlConnection(connetionString);
+            try
+            {
+                conn.Open();
+
+            }
+            catch
+            {
+                MessageBox.Show("Conexão Falhou");
+
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+
+        }
+
+
+
+
+    }
     }
 

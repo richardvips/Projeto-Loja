@@ -1,6 +1,6 @@
 ﻿namespace PEmp
 {
-    partial class Form1
+    partial class LOJ
     {
         /// <summary>
         ///  Required designer variable.
@@ -92,7 +92,7 @@
             this.btnEstoque.UseVisualStyleBackColor = true;
             this.btnEstoque.Click += new System.EventHandler(this.btnEstoque_Click);
             // 
-            // Form1
+            // LOJ
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -102,8 +102,8 @@
             this.Controls.Add(this.btnBanco);
             this.Controls.Add(this.btnLoja);
             this.Controls.Add(this.btnEstoque);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "LOJ";
+            this.Text = "Inicio";
             this.ResumeLayout(false);
             this.PerformLayout();
 

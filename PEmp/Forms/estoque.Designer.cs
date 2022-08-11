@@ -29,35 +29,36 @@ namespace PEmp.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvProduto = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblValorT = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.txtCod = new System.Windows.Forms.TextBox();
+            this.txtQtd = new System.Windows.Forms.TextBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.txtval = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvProduto
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvProduto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 145);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(763, 284);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProduto.Location = new System.Drawing.Point(12, 145);
+            this.dgvProduto.Name = "dgvProduto";
+            this.dgvProduto.RowTemplate.Height = 25;
+            this.dgvProduto.Size = new System.Drawing.Size(915, 343);
+            this.dgvProduto.TabIndex = 0;
+            this.dgvProduto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduto_CellContentClick);
             // 
             // label1
             // 
@@ -95,14 +96,14 @@ namespace PEmp.Forms
             this.label4.TabIndex = 4;
             this.label4.Text = "Valor Total: R$";
             // 
-            // label5
+            // lblValorT
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(339, 113);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 15);
-            this.label5.TabIndex = 5;
-            this.label5.Text = " 00,00";
+            this.lblValorT.AutoSize = true;
+            this.lblValorT.Location = new System.Drawing.Point(337, 112);
+            this.lblValorT.Name = "lblValorT";
+            this.lblValorT.Size = new System.Drawing.Size(37, 15);
+            this.lblValorT.TabIndex = 5;
+            this.lblValorT.Text = " 00,00";
             // 
             // label6
             // 
@@ -125,87 +126,92 @@ namespace PEmp.Forms
             this.label7.TabIndex = 7;
             this.label7.Text = "Cadastro de Produto";
             // 
-            // textBox1
+            // txtCod
             // 
-            this.textBox1.Location = new System.Drawing.Point(115, 44);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(64, 23);
-            this.textBox1.TabIndex = 8;
+            this.txtCod.Location = new System.Drawing.Point(115, 44);
+            this.txtCod.Name = "txtCod";
+            this.txtCod.Size = new System.Drawing.Size(64, 23);
+            this.txtCod.TabIndex = 8;
             // 
-            // textBox2
+            // txtQtd
             // 
-            this.textBox2.Location = new System.Drawing.Point(115, 78);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(64, 23);
-            this.textBox2.TabIndex = 9;
+            this.txtQtd.Location = new System.Drawing.Point(115, 116);
+            this.txtQtd.Name = "txtQtd";
+            this.txtQtd.Size = new System.Drawing.Size(64, 23);
+            this.txtQtd.TabIndex = 10;
+            this.txtQtd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQtd_KeyPress);
+            this.txtQtd.Leave += new System.EventHandler(this.txtQtd_Leave);
             // 
-            // textBox3
+            // txtNome
             // 
-            this.textBox3.Location = new System.Drawing.Point(115, 116);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(64, 23);
-            this.textBox3.TabIndex = 10;
+            this.txtNome.Location = new System.Drawing.Point(305, 78);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(165, 23);
+            this.txtNome.TabIndex = 11;
             // 
-            // textBox4
+            // btnSalvar
             // 
-            this.textBox4.Location = new System.Drawing.Point(305, 78);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(165, 23);
-            this.textBox4.TabIndex = 11;
+            this.btnSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSalvar.Location = new System.Drawing.Point(651, 78);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(66, 61);
+            this.btnSalvar.TabIndex = 12;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
-            // button1
+            // btnEditar
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(486, 78);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(66, 61);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Salvar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditar.Location = new System.Drawing.Point(848, 78);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(66, 61);
+            this.btnEditar.TabIndex = 13;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnEdit
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(696, 78);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(66, 61);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Editar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEdit.Location = new System.Drawing.Point(748, 78);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(66, 61);
+            this.btnEdit.TabIndex = 14;
+            this.btnEdit.Text = "Editar";
+            this.btnEdit.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // txtval
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(596, 78);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(66, 61);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "Incluir";
-            this.button3.UseVisualStyleBackColor = true;
+            this.txtval.Location = new System.Drawing.Point(115, 78);
+            this.txtval.Name = "txtval";
+            this.txtval.Size = new System.Drawing.Size(64, 23);
+            this.txtval.TabIndex = 15;
+            this.txtval.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtquantidade_KeyPress);
+            this.txtval.Leave += new System.EventHandler(this.txtquantidade_Leave);
             // 
             // estoque
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(952, 509);
+            this.Controls.Add(this.txtval);
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnSalvar);
+            this.Controls.Add(this.txtNome);
+            this.Controls.Add(this.txtQtd);
+            this.Controls.Add(this.txtCod);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lblValorT);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvProduto);
             this.Name = "estoque";
             this.Text = "Produto ";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,20 +219,21 @@ namespace PEmp.Forms
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dgvProduto;
         private Label label1;
         private Label label2;
         private Label label3;
         private Label label4;
-        private Label label5;
+        private Label lblValorT;
         private Label label6;
         private Label label7;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private TextBox txtCod;
+        private TextBox txtQtd;
+        private TextBox txtNome;
+        private Button btnSalvar;
+        private Button btnEditar;
+        private Button btnEdit;
+        private MaskedTextBox txtValor;
+        private TextBox txtval;
     }
 }

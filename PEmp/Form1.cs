@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 namespace PEmp
 {
-    public partial class Form1 : Form
+    public partial class LOJ : Form
     {
         public void connstri()
         {   
@@ -19,12 +19,17 @@ namespace PEmp
                 lblconn.ForeColor = Color.Green;
                 conn.Close();
 
+                btnEstoque.Enabled = true;
+                btnLoja.Enabled = true;
+
             }
             catch
             {
                 lblconn.Text = "Desativado";
                 lblconn.ForeColor = Color.Red;
-                MessageBox.Show("Conexão Falhou"); 
+                MessageBox.Show("Conexão Falhou");
+                btnEstoque.Enabled = false;
+                btnLoja.Enabled= false;
 
             }
             finally
@@ -32,7 +37,7 @@ namespace PEmp
                 conn.Close();
             }
         }
-        public Form1()
+        public LOJ()
         {
 
             InitializeComponent();
