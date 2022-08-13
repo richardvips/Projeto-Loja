@@ -49,16 +49,19 @@ namespace PEmp.Forms
             // 
             // dgvProduto
             // 
+            this.dgvProduto.AllowUserToAddRows = false;
+            this.dgvProduto.AllowUserToDeleteRows = false;
             this.dgvProduto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProduto.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvProduto.Location = new System.Drawing.Point(12, 145);
             this.dgvProduto.Name = "dgvProduto";
             this.dgvProduto.RowTemplate.Height = 25;
+            this.dgvProduto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProduto.Size = new System.Drawing.Size(915, 343);
             this.dgvProduto.TabIndex = 0;
-            this.dgvProduto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduto_CellContentClick);
             // 
             // label1
             // 
@@ -110,9 +113,9 @@ namespace PEmp.Forms
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(22, 113);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 15);
+            this.label6.Size = new System.Drawing.Size(72, 15);
             this.label6.TabIndex = 6;
-            this.label6.Text = "Quantidade: ";
+            this.label6.Text = "Quantidade:";
             // 
             // label7
             // 
@@ -128,14 +131,14 @@ namespace PEmp.Forms
             // 
             // txtCod
             // 
-            this.txtCod.Location = new System.Drawing.Point(115, 44);
+            this.txtCod.Location = new System.Drawing.Point(115, 39);
             this.txtCod.Name = "txtCod";
             this.txtCod.Size = new System.Drawing.Size(64, 23);
             this.txtCod.TabIndex = 8;
             // 
             // txtQtd
             // 
-            this.txtQtd.Location = new System.Drawing.Point(115, 116);
+            this.txtQtd.Location = new System.Drawing.Point(115, 105);
             this.txtQtd.Name = "txtQtd";
             this.txtQtd.Size = new System.Drawing.Size(64, 23);
             this.txtQtd.TabIndex = 10;
@@ -182,7 +185,7 @@ namespace PEmp.Forms
             // 
             // txtval
             // 
-            this.txtval.Location = new System.Drawing.Point(115, 78);
+            this.txtval.Location = new System.Drawing.Point(115, 70);
             this.txtval.Name = "txtval";
             this.txtval.Size = new System.Drawing.Size(64, 23);
             this.txtval.TabIndex = 15;
@@ -211,6 +214,7 @@ namespace PEmp.Forms
             this.Controls.Add(this.dgvProduto);
             this.Name = "estoque";
             this.Text = "Produto ";
+            this.Load += new System.EventHandler(this.estoque_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

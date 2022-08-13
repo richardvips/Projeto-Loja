@@ -1,3 +1,5 @@
+using PEmp.Forms;
+
 namespace PEmp
 {
     internal static class Program
@@ -20,6 +22,7 @@ namespace PEmp
         }
         public static void floatnum(object sender, KeyPressEventArgs e)
         {
+
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8 && e.KeyChar != 44)
                 e.Handled = true;
             else if(e.KeyChar == 44)
@@ -27,7 +30,10 @@ namespace PEmp
                 TextBox txt = (TextBox)sender;
                 if (txt.Text.Contains(","))
                     e.Handled=true;
+
+
             }
+
 
         }
     }

@@ -16,6 +16,8 @@ namespace PEmp.Forms
 {
     public partial class estoque : Form
     {
+        
+
         public void consulta()
         {
 
@@ -24,7 +26,7 @@ namespace PEmp.Forms
             try
             {
 
-                SqlCommand cmd = new SqlCommand("SELECT * FROM cadastro_prod", conn);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM cadastro_produto", conn);
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 SqlDataAdapter da = new SqlDataAdapter();
@@ -34,7 +36,6 @@ namespace PEmp.Forms
                 dgvProduto.DataSource = ds;
                 dgvProduto.DataMember = ds.Tables[0].TableName;
                 conn.Close();
-
             }
             catch (SqlException ex)
             {
@@ -45,47 +46,7 @@ namespace PEmp.Forms
                 conn.Close();
             }
         }
-        public void incluir()
-        {
 
-            string connetionString = arquString.procurararquivo();
-            SqlConnection conn = new SqlConnection(connetionString);
-            try
-            {
-
-                string sql = "INSERT INTO cadastro_prod(id, nomeproduto, quantidade, valorproduto) VALUES (@id, @nomeproduto, @quantidade, @valorproduto)";
-                //cria um objeto do tipo comando passando como parametro a string sql e conn
-                SqlCommand c = new SqlCommand(sql, conn);
-
-                //Insere dados da textbox no comando sql
-                c.Parameters.Add(new SqlParameter("@id", this.txtCod.Text));
-                c.Parameters.Add(new SqlParameter("@nomeproduto", this.txtValor.Text));
-                c.Parameters.Add(new SqlParameter("@quantidade", this.txtQtd.Text));
-                c.Parameters.Add(new SqlParameter("@valorproduto", this.txtValor.Text));
-                conn.Open();
-                //abrir a conexao
-                //executa  comando sql no banco
-                c.ExecuteNonQuery();
-                conn.Close();
-
-                MessageBox.Show("Cadastrado com Sucesso");
-
-
-
-
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("Ocorreu o erro:" + ex);
-            }
-            finally
-            {
-                conn.Close();
-            }
-
-
-
-        }
 
 
         public estoque()
@@ -94,14 +55,9 @@ namespace PEmp.Forms
             consulta();
         }
 
-        private void dgvProduto_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            incluir();
+            arquString.incluirDdProduto(txtCod.Text, txtNome.Text, txtval.Text, txtQtd.Text);
             consulta();
         }
 
@@ -120,14 +76,25 @@ namespace PEmp.Forms
         {
             var num = Convert.ToDecimal(txtval.Text);
             txtval.Text = num.ToString("N2");
+
+            txtQtd_Leave(sender, e);
         }
 
-        private void txtQtd_Leave(object sender, EventArgs e)
+        public void txtQtd_Leave(object sender, EventArgs e)
         {
-            var valor = Convert.ToDecimal(txtval.Text);
-            var quantidade = Convert.ToInt32(txtQtd.Text);
-            valor = quantidade * valor;
-            lblValorT.Text=valor.ToString("N2");
+            if (txtval.Text != String.Empty && txtQtd.Text != String.Empty)
+            {
+
+                var valor = Convert.ToDecimal(txtval.Text);
+                var quantidade = Convert.ToInt32(txtQtd.Text);
+                valor = quantidade * valor;
+                lblValorT.Text = valor.ToString("N2");
+            }
+        }
+
+        private void estoque_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
